@@ -41,7 +41,7 @@ $BDGSV: Beidou Satellites in View
 class GPS(Node):
     def __init__(self, atgm366h:ATGM336H_Serial, dev:str):
         super().__init__('gps_node')
-        self.gpgga_pub = self.create_publisher(Gpgga, 'gps/gpgga', 10)
+        self.gpgga_pub = self.create_publisher(Gpgga, 'gps/fix', 10)
         timer_period = 0.1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback_gps)
         self.atgm = atgm366h
