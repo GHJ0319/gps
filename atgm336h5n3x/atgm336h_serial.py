@@ -67,4 +67,3 @@ class ATGM336H_Serial():
             return data
         else:
             return False
-
