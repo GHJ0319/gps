@@ -24,7 +24,7 @@ class GPS(Node):
                 navsatfix.header.frame_id = 'gps'
                 navsatfix.latitude = (float(data[1])+9.89414)/100 if data[1] else np.nan
                 navsatfix.longitude = (float(data[3])+10.91329)/100 if data[3] else np.nan
-                navsatfix.altitude = (float(data[8])/100 if data[8] else np.nan
+                navsatfix.altitude = float(data[8])/100 if data[8] else np.nan
                 # Set the position covariance if available
                 navsatfix.position_covariance_type = NavSatFix.COVARIANCE_TYPE_UNKNOWN
                 self.navsatfix_pub.publish(navsatfix)
